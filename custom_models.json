@@ -1,0 +1,22 @@
+[
+    {
+        "model_name": "realvisionv6_h",
+        "model_download_url": "https://civitai.com/api/download/models/501240",
+        "model_filename": "realvisionv6_h.safetensors",
+        "destination": "models/checkpoints",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": true,
+        "download_token": "f4664d9953235775a985fa1dcdd78874"
+    },
+    {
+        "model_name": "depth-sdxl",
+        "model_download_url": "https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors",
+        "model_filename": "depth-sdxl.safetensors",
+        "destination": "models/controlnet",
+        "extra_files": [],
+        "target_diffusion_model": "sdxl",
+        "require_token": false,
+        "download_token": ""
+    }
+]

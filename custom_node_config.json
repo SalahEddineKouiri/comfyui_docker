@@ -1,0 +1,300 @@
+[
+    {
+        "custom_node_name": "comfyui_manager",
+        "custom_node_git_repo": "https://github.com/ltdrdata/ComfyUI-Manager.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_math",
+        "custom_node_git_repo": "https://github.com/evanspearman/ComfyMath.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_adapter_plus",
+        "custom_node_git_repo": "https://github.com/cubiq/ComfyUI_IPAdapter_plus.git",
+        "extras": {
+            "models": [
+                {
+                    "model_name": "CLIP-ViT-H-14-laion2B-s32B-b79K",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors",
+                    "model_filename": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors",
+                    "destination": "models/clip_vision",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "ip-adapter_sd15",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter_sd15.safetensors",
+                    "model_filename": "ip-adapter_sd15.safetensors",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sd15"
+                },
+                {
+                    "model_name": "ip-adapter_sd15_light_v11",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter_sd15_light_v11.bin",
+                    "model_filename": "ip-adapter_sd15_light_v11.bin",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sd15"
+                },
+                {
+                    "model_name": "ip-adapter-plus_sd15",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus_sd15.safetensors",
+                    "model_filename": "ip-adapter-plus_sd15.safetensors",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sd15"
+                },
+                {
+                    "model_name": "ip-adapter-plus-face_sd15",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-plus-face_sd15.safetensors",
+                    "model_filename": "ip-adapter-plus-face_sd15.safetensors",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sd15"
+                },
+                {
+                    "model_name": "ip-adapter-full-face_sd15",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/ip-adapter-full-face_sd15.safetensors",
+                    "model_filename": "ip-adapter-full-face_sd15.safetensors",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sd15"
+                },
+                {
+                    "model_name": "ip-adapter-sdxl_vit-h",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors",
+                    "model_filename": "ip-adapter_sdxl_vit-h.safetensors",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sdxl"
+                },
+                {
+                    "model_name": "ip-adapter-plus-sdxl-vit-h",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors",
+                    "model_filename": "ip-adapter-plus_sdxl_vit-h.safetensors",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sdxl"
+                },
+                {
+                    "model_name": "ip-adapter-plus-face-sdxl-vit-h",
+                    "model_download_url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors",
+                    "model_filename": "ip-adapter-plus-face_sdxl_vit-h.safetensors",
+                    "destination": "models/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": "sdxl"
+                }
+            ]
+        }
+    },
+    {
+        "custom_node_name": "comfyui_segment_anything",
+        "custom_node_git_repo": "https://github.com/storyicon/comfyui_segment_anything.git",
+        "extras": {
+            "models": [
+                {
+                    "model_name": "groundingdino_swint_ogc",
+                    "model_download_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth",
+                    "model_filename": "groundingdino_swint_ogc.pth",
+                    "destination": "models/grounding-dino",
+                    "extra_files": [
+                        {
+                            "file_download_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinT_OGC.cfg.py",
+                            "filename": "GroundingDINO_SwinT_OGC.cfg.py",
+                            "destination": "models/grounding-dino"
+                        }
+                    ],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "groundingdino_swinb_cogcoor",
+                    "model_download_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swinb_cogcoor.pth",
+                    "model_filename": "groundingdino_swinb_cogcoor.pth",
+                    "destination": "models/grounding-dino",
+                    "extra_files": [
+                        {
+                            "file_download_url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinB.cfg.py",
+                            "filename": "GroundingDINO_SwinB.cfg.py",
+                            "destination": "models/grounding-dino"
+                        }
+                    ],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "sam_vit_l",
+                    "model_download_url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth",
+                    "model_filename": "sam_vit_l_0b3195.pth",
+                    "destination": "models/sams",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "sam_vit_h",
+                    "model_download_url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth",
+                    "model_filename": "sam_vit_h_4b8939.pth",
+                    "destination": "models/sams",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "sam_vit_b",
+                    "model_download_url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth",
+                    "model_filename": "sam_vit_b_01ec64.pth",
+                    "destination": "models/sams",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "sam_hq_vit_h",
+                    "model_download_url": "https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_h.pth",
+                    "model_filename": "sam_hq_vit_h.pth",
+                    "destination": "models/sams",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "sam_hq_vit_l",
+                    "model_download_url": "https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_l.pth",
+                    "model_filename": "sam_hq_vit_l.pth",
+                    "destination": "models/sams",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "sam_hq_vit_b",
+                    "model_download_url": "https://huggingface.co/lkeab/hq-sam/resolve/main/sam_hq_vit_b.pth",
+                    "model_filename": "sam_hq_vit_b.pth",
+                    "destination": "models/sams",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "mobile_sam",
+                    "model_download_url": "https://github.com/ChaoningZhang/MobileSAM/blob/master/weights/mobile_sam.pt",
+                    "model_filename": "mobile_sam.pt",
+                    "destination": "models/sams",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                }
+            ]
+        }
+    },
+    {
+        "custom_node_name": "comfyui_instandid",
+        "custom_node_git_repo": "https://github.com/cubiq/ComfyUI_InstantID.git",
+        "extras": {
+            "models": [
+                {
+                    "model_name": "antelopev2",
+                    "model_download_url": "https://huggingface.co/MonsterMMORPG/tools/resolve/main/antelopev2.zip",
+                    "model_filename": "antelopev2.zip",
+                    "destination": "models",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "instandid_ip_adapter",
+                    "model_download_url": "https://huggingface.co/InstantX/InstantID/resolve/main/ip-adapter.bin",
+                    "model_filename": "ip-adapter.bin",
+                    "destination": "models/instantid",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "instandid_controlnet",
+                    "model_download_url": "https://huggingface.co/InstantX/InstantID/resolve/main/ControlNetModel/diffusion_pytorch_model.safetensors",
+                    "model_filename": "instandid-controlnet.bin",
+                    "destination": "models/controlnet/ipadapter",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                }
+            ]
+        }
+    },
+    {
+        "custom_node_name": "comfyui_controlnet_aux",
+        "custom_node_git_repo": "https://github.com/Fannovel16/comfyui_controlnet_aux.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_essentials",
+        "custom_node_git_repo": "https://github.com/cubiq/ComfyUI_essentials.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_inpaint_nodes",
+        "custom_node_git_repo": "https://github.com/Acly/comfyui-inpaint-nodes.git",
+        "extras": {
+            "models": [
+                {
+                    "model_name": "lama",
+                    "model_download_url": "https://github.com/Sanster/models/releases/download/add_big_lama/big-lama.pt",
+                    "model_filename": "big-lama.pt",
+                    "destination": "models/inpaint",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                }
+            ]
+        }
+    },
+    {
+        "custom_node_name": "comfyui_advanced_controlnet",
+        "custom_node_git_repo": "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_tooling_nodes",
+        "custom_node_git_repo": "https://github.com/Acly/comfyui-tooling-nodes.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_impact_pack",
+        "custom_node_git_repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_rgthree",
+        "custom_node_git_repo": "https://github.com/rgthree/rgthree-comfy.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_various",
+        "custom_node_git_repo": "https://github.com/jamesWalker55/comfyui-various.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_kjnodes",
+        "custom_node_git_repo": "https://github.com/kijai/ComfyUI-KJNodes.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_layerstyle",
+        "custom_node_git_repo": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
+        "extras": {
+            "models": []
+        }
+    }
+
+]
