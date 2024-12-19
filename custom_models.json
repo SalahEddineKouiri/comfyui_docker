@@ -20,6 +20,16 @@
         "download_token": "f4664d9953235775a985fa1dcdd78874"
     },
     {
+        "model_name": "aiartist_hyperray_xl",
+        "model_download_url": "https://civitai.com/api/download/models/479285",
+        "model_filename": "aiartist_hyperray_xl.safetensors",
+        "destination": "models/checkpoints",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": true,
+        "download_token": "f4664d9953235775a985fa1dcdd78874"
+    },
+    {
         "model_name": "depth-sdxl",
         "model_download_url": "https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors",
         "model_filename": "depth-sdxl.safetensors",
