@@ -79,6 +79,7 @@ class Downloader():
         except:
             filename = self.download_file_with_requests(
                 url = url,
+                out_path=out_path,
                 headers={'User-agent': 'Mozilla/5.0'}
             )
         return True
