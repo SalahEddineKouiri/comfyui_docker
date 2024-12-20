@@ -367,7 +367,7 @@
     },
     {
         "custom_node_name": "comfyui_easyocr",
-        "custom_node_git_repo": "https://github.com/prodogape/ComfyUI-EasyOCR.git",
+        "custom_node_git_repo": "https://github.com/SalahEddineKouiri/comfyui_easyocr.git",
         "extras": {
             "models": []
         }
