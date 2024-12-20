@@ -371,6 +371,13 @@
         "extras": {
             "models": []
         }
+    },
+    {
+        "custom_node_name": "comfyui_was_nodes_suite",
+        "custom_node_git_repo": "https://github.com/WASasquatch/was-node-suite-comfyui.git",
+        "extras": {
+            "models": []
+        }
     }
 
 ]
