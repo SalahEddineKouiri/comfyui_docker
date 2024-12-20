@@ -243,6 +243,38 @@
                     "destination": "models/inpaint",
                     "extra_files": [],
                     "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "fooocus_inpaint_head",
+                    "model_download_url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth",
+                    "model_filename": "fooocus_inpaint_head.pth",
+                    "destination": "models/inpaint",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "fooocus_lama",
+                    "model_download_url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_lama.safetensors",
+                    "model_filename": "fooocus_lama.safetensors",
+                    "destination": "models/inpaint",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "inpaint_fooocus",
+                    "model_download_url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint.fooocus.patch",
+                    "model_filename": "inpaint.fooocus.patch",
+                    "destination": "models/inpaint",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "inpaint_v26.fooocus.patch",
+                    "model_download_url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch",
+                    "model_filename": "inpaint_v26.fooocus.patch",
+                    "destination": "models/inpaint",
+                    "extra_files": [],
+                    "target_diffusion_model": ""
                 }
             ]
         }
@@ -292,6 +324,13 @@
     {
         "custom_node_name": "comfyui_layerstyle",
         "custom_node_git_repo": "https://github.com/chflame163/ComfyUI_LayerStyle.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_depthanythingv2",
+        "custom_node_git_repo": "https://github.com/kijai/ComfyUI-DepthAnythingV2.git",
         "extras": {
             "models": []
         }

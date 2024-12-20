@@ -42,7 +42,9 @@ ENV VIRTUAL_ENV_CUSTOM=/app/custom_venv
 # create cache directory. During build we will use a cache mount,
 # but later this is useful for custom node installs
 RUN --mount=type=cache,target=/cache/,uid=${USER_UID},gid=${USER_GID} \
-	mkdir -p ${PIP_CACHE_DIR}
+	mkdir -p ${PIP_CACHE_DIR} && \
+    chown -R ${USER_UID}:${USER_GID} /cache && \
+    chmod -R 775 /cache
 
 # create virtual environment to manage packages
 RUN python -m venv ${VIRTUAL_ENV}
