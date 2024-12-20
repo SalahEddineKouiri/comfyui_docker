@@ -181,7 +181,37 @@
                     "destination": "models/sams",
                     "extra_files": [],
                     "target_diffusion_model": ""
+                },
+                {
+                    "model_name": "bert-base-uncased",
+                    "model_download_url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/main/model.safetensors",
+                    "model_filename": "model.safetensors",
+                    "destination": "models/bert-base-uncased",
+                    "extra_files": [
+                        {
+                            "file_download_url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/main/config.json",
+                            "filename": "config.json",
+                            "destination": "models/bert-base-uncased"
+                        },
+                        {
+                            "file_download_url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/main/tokenizer.json",
+                            "filename": "tokenizer.json",
+                            "destination": "models/bert-base-uncased"
+                        },
+                        {
+                            "file_download_url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/main/vocab.txt",
+                            "filename": "vocab.txt",
+                            "destination": "models/bert-base-uncased"
+                        },
+                        {
+                            "file_download_url": "https://huggingface.co/google-bert/bert-base-uncased/resolve/main/tokenizer_config.json",
+                            "filename": "tokenizer_config.json",
+                            "destination": "models/bert-base-uncased"
+                        }
+                    ],
+                    "target_diffusion_model": ""
                 }
+
             ]
         }
     },

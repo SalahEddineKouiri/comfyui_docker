@@ -29,8 +29,6 @@ EOF
 
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 gcc build-essential -y
 
-# run instructions as user
-USER ${USER_UID}:${USER_GID}
 
 WORKDIR /app
 
@@ -44,7 +42,7 @@ ENV VIRTUAL_ENV_CUSTOM=/app/custom_venv
 RUN --mount=type=cache,target=/cache/,uid=${USER_UID},gid=${USER_GID} \
 	mkdir -p ${PIP_CACHE_DIR} && \
     chown -R ${USER_UID}:${USER_GID} /cache && \
-    chmod -R 775 /cache
+    chmod -R 775 /cache 
 
 # create virtual environment to manage packages
 RUN python -m venv ${VIRTUAL_ENV}
@@ -64,7 +62,10 @@ RUN --mount=type=cache,target=/cache/,uid=${USER_UID},gid=${USER_GID} \
 
 COPY --chown=${USER_UID}:${USER_GID} . .
 
-RUN python setup_custom_nodes.py
+# run instructions as user
+USER ${USER_UID}:${USER_GID}
+
+#RUN python setup_custom_nodes.py
 
 COPY --chown=nobody:${USER_GID} .git .git
 
