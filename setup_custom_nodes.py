@@ -202,15 +202,6 @@ class CustomNodesPackage(Downloader):
         
         
 if __name__ == "__main__":
-    with open("custom_models.json", "r") as model_config_file:
-        model_config = json.load(model_config_file)
-    
-    downloader = Downloader()    
-    print(f"Found {len(model_config)} models in config...")
-    for model in model_config:
-        model = ModelInfo(model)
-        downloader.setup_model(model)
-        
     
     with open("custom_node_config.json", "r") as config_file:
         config = json.load(config_file)
@@ -219,5 +210,14 @@ if __name__ == "__main__":
     for cstm_pkg in config:    
         custom_package = CustomNodesPackage(cstm_pkg)
         custom_package.setup()
+        
+    with open("custom_models.json", "r") as model_config_file:
+        model_config = json.load(model_config_file)
+    
+    downloader = Downloader()    
+    print(f"Found {len(model_config)} models in config...")
+    for model in model_config:
+        model = ModelInfo(model)
+        downloader.setup_model(model)
         
     
