@@ -30,9 +30,29 @@
         "download_token": "f4664d9953235775a985fa1dcdd78874"
     },
     {
+        "model_name": "architectureInterior_v80",
+        "model_download_url": "https://civitai.com/api/download/models/144610",
+        "model_filename": "architectureInterior_v80.safetensors",
+        "destination": "models/checkpoints",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": true,
+        "download_token": "f4664d9953235775a985fa1dcdd78874"
+    },
+    {
         "model_name": "3d_floor_plan",
         "model_download_url": "https://civitai.com/api/download/models/458048",
         "model_filename": "3d_floor_plan.safetensors",
+        "destination": "models/loras",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": true,
+        "download_token": "f4664d9953235775a985fa1dcdd78874"
+    },
+    {
+        "model_name": "floor_plan",
+        "model_download_url": "https://civitai.com/api/download/models/104943",
+        "model_filename": "lwpm-V40.safetensors",
         "destination": "models/loras",
         "extra_files": [],
         "target_diffusion_model": "",
