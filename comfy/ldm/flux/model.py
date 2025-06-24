@@ -101,6 +101,10 @@ class Flux(nn.Module):
         transformer_options={},
         attn_mask: Tensor = None,
     ) -> Tensor:
+
+        if y is None:
+            y = torch.zeros((img.shape[0], self.params.vec_in_dim), device=img.device, dtype=img.dtype)
+
         patches_replace = transformer_options.get("patches_replace", {})
         if img.ndim != 3 or txt.ndim != 3:
             raise ValueError("Input img and txt tensors must have 3 dimensions.")
@@ -109,15 +113,17 @@ class Flux(nn.Module):
         img = self.img_in(img)
         vec = self.time_in(timestep_embedding(timesteps, 256).to(img.dtype))
         if self.params.guidance_embed:
-            if guidance is None:
-                raise ValueError("Didn't get guidance strength for guidance distilled model.")
-            vec = vec + self.guidance_in(timestep_embedding(guidance, 256).to(img.dtype))
+            if guidance is not None:
+                vec = vec + self.guidance_in(timestep_embedding(guidance, 256).to(img.dtype))
 
         vec = vec + self.vector_in(y[:,:self.params.vec_in_dim])
         txt = self.txt_in(txt)
 
-        ids = torch.cat((txt_ids, img_ids), dim=1)
-        pe = self.pe_embedder(ids)
+        if img_ids is not None:
+            ids = torch.cat((txt_ids, img_ids), dim=1)
+            pe = self.pe_embedder(ids)
+        else:
+            pe = None
 
         blocks_replace = patches_replace.get("dit", {})
         for i, block in enumerate(self.double_blocks):
@@ -153,6 +159,9 @@ class Flux(nn.Module):
                     if add is not None:
                         img += add
 
+        if img.dtype == torch.float16:
+            img = torch.nan_to_num(img, nan=0.0, posinf=65504, neginf=-65504)
+
         img = torch.cat((txt, img), 1)
 
         for i, block in enumerate(self.single_blocks):
@@ -168,7 +177,7 @@ class Flux(nn.Module):
                 out = blocks_replace[("single_block", i)]({"img": img,
                                                            "vec": vec,
                                                            "pe": pe,
-                                                           "attn_mask": attn_mask}, 
+                                                           "attn_mask": attn_mask},
                                                           {"original_block": block_wrap})
                 img = out["img"]
             else:
@@ -186,7 +195,7 @@ class Flux(nn.Module):
         img = self.final_layer(img, vec)  # (N, T, patch_size ** 2 * out_channels)
         return img
 
-    def forward(self, x, timestep, context, y, guidance, control=None, transformer_options={}, **kwargs):
+    def forward(self, x, timestep, context, y=None, guidance=None, control=None, transformer_options={}, **kwargs):
         bs, c, h, w = x.shape
         patch_size = self.patch_size
         x = comfy.ldm.common_dit.pad_to_patch_size(x, (patch_size, patch_size))
