@@ -6,17 +6,9 @@ FROM python:${PYTHON_VERSION}-slim
 
 ARG PYTORCH_INSTALL_ARGS=""
 ARG EXTRA_ARGS=""
-ARG USERNAME=comfyui
-ARG USER_UID=1000
-ARG USER_GID=${USER_UID}
 
 # Fail fast on errors or unset variables
 SHELL ["/bin/bash", "-eux", "-o", "pipefail", "-c"]
-
-RUN <<EOF
-	groupadd --gid ${USER_GID} ${USERNAME}
-	useradd --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME}
-EOF
 
 RUN <<EOF
 	apt-get update
@@ -29,9 +21,6 @@ EOF
 
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 gcc build-essential -y
 
-# run instructions as user
-USER ${USER_UID}:${USER_GID}
-
 WORKDIR /app
 
 ENV XDG_CACHE_HOME=/cache
@@ -39,38 +28,36 @@ ENV PIP_CACHE_DIR=/cache/pip
 ENV VIRTUAL_ENV=/app/venv
 ENV VIRTUAL_ENV_CUSTOM=/app/custom_venv
 
-# create cache directory. During build we will use a cache mount,
-# but later this is useful for custom node installs
-RUN --mount=type=cache,target=/cache/,uid=${USER_UID},gid=${USER_GID} \
+# create cache directory
+RUN --mount=type=cache,target=/cache/ \
 	mkdir -p ${PIP_CACHE_DIR}
 
-# create virtual environment to manage packages
+# create virtual environment
 RUN python -m venv ${VIRTUAL_ENV}
 
 # run python from venv (prefer custom_venv over baked-in one)
 ENV PATH="${VIRTUAL_ENV_CUSTOM}/bin:${VIRTUAL_ENV}/bin:${PATH}"
 
-RUN --mount=type=cache,target=/cache/,uid=${USER_UID},gid=${USER_GID} \
+RUN --mount=type=cache,target=/cache/ \
 	pip install torch torchvision torchaudio ${PYTORCH_INSTALL_ARGS}
 
 # copy requirements files first so packages can be cached separately
-COPY --chown=${USER_UID}:${USER_GID} requirements.txt .
-RUN --mount=type=cache,target=/cache/,uid=${USER_UID},gid=${USER_GID} \
+COPY requirements.txt .
+RUN --mount=type=cache,target=/cache/ \
 	pip install -r requirements.txt
 
-
-
-COPY --chown=${USER_UID}:${USER_GID} . .
+COPY . .
 
 RUN python setup_custom_nodes.py
 
-COPY --chown=nobody:${USER_GID} .git .git
+COPY .git .git
 
 # default environment variables
 ENV COMFYUI_ADDRESS=0.0.0.0
 ENV COMFYUI_PORT=8188
 ENV COMFYUI_EXTRA_BUILD_ARGS="${EXTRA_ARGS}"
 ENV COMFYUI_EXTRA_ARGS=""
+
 # default start command
 CMD \
 	if [ -d "${VIRTUAL_ENV_CUSTOM}" ]; then \

@@ -110,5 +110,75 @@
         "target_diffusion_model": "sdxl",
         "require_token": false,
         "download_token": ""
-    }
+    },
+    {
+        "model_name": "canny-sdxl",
+        "model_download_url": "https://huggingface.co/xinsir/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors",
+        "model_filename": "controlnet-canny-sdxl.safetensors",
+        "destination": "models/controlnet",
+        "extra_files": [],
+        "target_diffusion_model": "sdxl",
+        "require_token": false,
+        "download_token": ""
+    },
+    {
+        "model_name": "flux-dev",
+        "model_download_url": "https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q4_K_S.gguf",
+        "model_filename": "flux-dev.gguf",
+        "destination": "models/unet",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": false,
+        "download_token": ""
+    },
+    {
+        "model_name": "t5-clip",
+        "model_download_url": "https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q4_K_S.gguf",
+        "model_filename": "t5-v1_1-xxl-encoder.gguf",
+        "destination": "models/clip",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": false,
+        "download_token": ""
+    },
+    {
+        "model_name": "clip-l",
+        "model_download_url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
+        "model_filename": "clip_l.safetensors",
+        "destination": "models/clip",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": false,
+        "download_token": ""
+    },
+    {
+        "model_name": "flux-ae",
+        "model_download_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors",
+        "model_filename": "flux_ae.safetensors",
+        "destination": "models/vae",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": false,
+        "download_token": ""
+    },
+    {
+        "model_name": "flux-turbo-lora",
+        "model_download_url": "https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha/resolve/main/diffusion_pytorch_model.safetensors",
+        "model_filename": "flux-dev-turbo-8steps-lora.safetensors",
+        "destination": "models/loras",
+        "extra_files": [],
+        "target_diffusion_model": "",
+        "require_token": false,
+        "download_token": ""
+    },
+    {
+        "model_name": "flux-turbo-lora",
+        "model_download_url": "https://huggingface.co/alimama-creative/FLUX.1-dev-Controlnet-Inpainting-Beta/resolve/main/diffusion_pytorch_model.safetensors",
+        "model_filename": "flux-controlnet-inpaint.safetensors",
+        "destination": "models/controlnet",
+        "extra_files": [],
+        "target_diffusion_model": "flux",
+        "require_token": false,
+        "download_token": ""
+    } 
 ]

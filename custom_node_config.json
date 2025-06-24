@@ -378,6 +378,26 @@
         "extras": {
             "models": []
         }
+    },
+    {
+        "custom_node_name": "comfyui_gguf",
+        "custom_node_git_repo": "https://github.com/city96/ComfyUI-GGUF.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_efficiency_nodes",
+        "custom_node_git_repo": "https://github.com/jags111/efficiency-nodes-comfyui.git",
+        "extras": {
+            "models": []
+        }
+    },
+    {
+        "custom_node_name": "comfyui_easy_use",
+        "custom_node_git_repo": "https://github.com/yolain/ComfyUI-Easy-Use.git",
+        "extras": {
+            "models": []
+        }
     }
-
 ]
